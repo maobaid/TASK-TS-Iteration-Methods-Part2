@@ -88,7 +88,7 @@ function filterSignificantTransactions(
 ): Transaction[] {
   // write your code here...
 
-  return transactions.filter((n) => n[1] >= 1000); // replace empty array with what you see is fit
+  return transactions.filter((n) => n[1] >= threshold); // replace empty array with what you see is fit
 }
 
 export {
