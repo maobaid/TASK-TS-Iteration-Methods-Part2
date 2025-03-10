@@ -22,7 +22,7 @@ const transactions: Transaction[] = [
 function filterIncomeTransactions(transactions: Transaction[]): Transaction[] {
   // write your code here...
 
-  return []; // replace empty array with what you see is fit
+  return transactions.filter((n) => n[0] == "income"); // replace empty array with what you see is fit
 }
 
 // `filterExpenseTransactions` function that:
@@ -33,7 +33,7 @@ function filterIncomeTransactions(transactions: Transaction[]): Transaction[] {
 function filterExpenseTransactions(transactions: Transaction[]): Transaction[] {
   // write your code here...
 
-  return []; // replace empty array with what you see is fit
+  return transactions.filter((n) => n[0] == "expense"); // replace empty array with what you see is fit
 }
 
 // `calculateTotalIncome` function that:
@@ -44,7 +44,9 @@ function filterExpenseTransactions(transactions: Transaction[]): Transaction[] {
 function calculateTotalIncome(transactions: Transaction[]): number {
   // write your code here...
 
-  return -1; // replace -1 with what you see is fit
+  return transactions
+    .filter((n) => n[0] == "income")
+    .reduce((total, n) => total + n[1], 0); // replace -1 with what you see is fit
 }
 
 // `calculateTotalExpenses` function that:
@@ -55,7 +57,9 @@ function calculateTotalIncome(transactions: Transaction[]): number {
 function calculateTotalExpenses(transactions: Transaction[]): number {
   // write your code here...
 
-  return -1; // replace -1 with what you see is fit
+  return transactions
+    .filter((n) => n[0] == "expense")
+    .reduce((total, n) => total + n[1], 0); // replace -1 with what you see is fit
 }
 
 // `calculateNetTotal` function that:
@@ -66,7 +70,9 @@ function calculateTotalExpenses(transactions: Transaction[]): number {
 function calculateNetTotal(transactions: Transaction[]): number {
   // write your code here...
 
-  return -1; // replace -1 with what you see is fit
+  return (
+    calculateTotalIncome(transactions) - calculateTotalExpenses(transactions)
+  ); // replace -1 with what you see is fit
 }
 
 // `filterSignificantTransactions` function that:
@@ -82,7 +88,7 @@ function filterSignificantTransactions(
 ): Transaction[] {
   // write your code here...
 
-  return []; // replace empty array with what you see is fit
+  return transactions.filter((n) => n[1] >= 1000); // replace empty array with what you see is fit
 }
 
 export {
